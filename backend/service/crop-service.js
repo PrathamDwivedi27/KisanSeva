@@ -58,6 +58,15 @@ class CropService{
             console.log("Something went wrong in crop-service update",error);
         }
     }
+
+    async findAllCropsWithUserId(userId){
+        try {
+            const crops=await this.cropRepository.findAllCropsWithUserId(userId);
+            return crops;
+        } catch (error) {
+            console.log("Something went wrong in crop-service update",error);
+        }
+    }
 }
 
 export default CropService;

@@ -134,4 +134,25 @@ const updateCrop=async (req,res)=>{
     }
 }
 
-export {upload,createCrop,getAllCrops,deleteCrop,getCrop,updateCrop}
+const getAllCropsWithUserId=async (req,res)=>{
+    try {
+        const crops=await cropService.findAllCropsWithUserId(req.body.userId);
+        return res.status(200).json({
+            data:crops,
+            success:true,
+            err:{},
+            message:"Successfully fetched the crops "
+        })
+
+    } catch (error) {
+        console.log("Something wrong in crop controller layer",error);
+        return res.status(500).json({
+            success:false,
+            data:{},
+            err:error.message,
+            message:"Not able to fetch the crops of the user"
+        });
+    }
+}
+
+export {upload,createCrop,getAllCrops,deleteCrop,getCrop,updateCrop,getAllCropsWithUserId}

@@ -4,7 +4,7 @@ import { createTweet,getAllTweets,getAllTweetsOfUser,getTweet } from '../../cont
 import toggleLike from '../../controller/like-controller.js';
 import createComment from '../../controller/comment-controller.js';
 import { deleteUser, forget, getUser, loginUser,registerUser, updateUser, verifyOtp,resetPassword } from '../../controller/user-controller.js'
-import {createCrop, deleteCrop, getAllCrops, getCrop, updateCrop,upload} from '../../controller/crop-controller.js'
+import {createCrop, deleteCrop, getAllCrops, getAllCropsWithUserId, getCrop, updateCrop,upload} from '../../controller/crop-controller.js'
 import { create, destroy, get, update } from '../../controller/seller-controller.js';
 import {createTransaction, getLast10Transactions} from '../../controller/transaction-controller.js'
 import { addToCart, getCart, removeFromCart } from '../../controller/cart-controller.js';
@@ -35,6 +35,7 @@ router.get('/crops',getAllCrops);
 router.delete('/crops/:id',deleteCrop);
 router.patch('/crops/:id',updateCrop);      //localhost:3000/api/v1/crops/66d6204b7e43fbe262bc6d67
 router.get('/crops/:id',getCrop);
+router.get('/all-crops/',getAllCropsWithUserId)
 
 //seller routes
 router.post('/seller',create);

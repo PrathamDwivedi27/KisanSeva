@@ -16,6 +16,14 @@ class CropRepository extends CrudRepository{
         }
     }
 
+    async findAllCropsWithUserId(userId){
+        try {
+            const crops=await Crop.find({userId:userId});
+            return crops;
+        } catch (error) {
+            console.log("Something went wrong in repo layer",error);
+        }
+    }
 
 };
 
