@@ -77,7 +77,7 @@ class TransactionRepository{
                 ]
             })
             .sort({ date: -1 }) 
-            .limit(10)
+            .limit(7)
             .lean();                    // to get js objects
 
             const updatedTransactions = transactions.map(transaction => {
