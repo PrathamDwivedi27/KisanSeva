@@ -65,7 +65,7 @@ const destroy = async (req, res) => {
 
 const get = async (req, res) => {
     try {
-        const { id: userId } = req.query;  // Use URL parameters
+        const { id: userId } = req.params;  // Use URL parameters
         const response = await sellerService.getSeller(userId);
         if(!response){
             return res.status(400).send('User doesnt exist');
