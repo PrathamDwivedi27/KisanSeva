@@ -394,7 +394,7 @@ const userService=new UserService();
 
 const updateUser=async(req,res)=>{
   try {
-    const user=await userService.updateUser(req.query.id,req.body);
+    const user=await userService.updateUser(req.params.id,req.body);
     return res.status(200).json({
       data:user,
       success:true,
