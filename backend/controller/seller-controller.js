@@ -89,8 +89,25 @@ const get = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        const { id: userId } = req.query;  // Use URL parameters
+        const { id: userId } = req.params;  // Extract the userId from query parameters
+        const { accountNo, ifscCode } = req.body;  // Extract the fields to be validated
+
+        // If account number is being updated, validate it
+        if (accountNo && !validateAccountNumber(accountNo)) {
+            return res.status(400).send('Please provide a valid account number');
+        }
+
+        // If IFSC code is being updated, validate it
+        if (ifscCode) {
+            const isValidIFSC = await validateIFSC(ifscCode);
+            if (!isValidIFSC) {
+                return res.status(400).send('Please provide a valid IFSC code');
+            }
+        }
+
+        // Proceed with the update if validations pass
         const seller = await sellerService.updateSeller(userId, req.body);
+
         return res.status(200).json({
             message: "Successfully updated the seller details",
             data: seller,
@@ -107,5 +124,6 @@ const update = async (req, res) => {
         });
     }
 };
+
 
 export { create, update, destroy, get };
