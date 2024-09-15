@@ -45,7 +45,7 @@ const createTransaction = async (req, res) => {
 
 const getLast10Transactions = async (req, res) => {
     try {
-        const { userId } = req.body;  // Extract userId from request body
+        const { id:userId } = req.params;  // Extract userId from request body
 
         // Fetch transactions
         const transactions = await transactionService.getLast10Transactions(userId);

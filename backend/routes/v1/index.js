@@ -45,7 +45,7 @@ router.patch('/seller/:id',update);
 
 //transaction routes
 router.post('/transaction',createTransaction);
-router.get('/transaction/last-10',getLast10Transactions);
+router.get('/transaction/last-10/:id',getLast10Transactions);
 
 //cartData routes
 router.post('/cart/add',addToCart);
