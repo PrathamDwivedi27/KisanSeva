@@ -19,7 +19,7 @@ router.post('/user/verify',verifyOtp);
 router.post('/user/resetPassword',resetPassword)
 router.get('/user/:id',getUser);
 router.delete('/user/:id',deleteUser);
-router.patch('/user/:id',updateUser);
+router.patch('/user/:id',updateUser); 
 
 //discussion routes
 router.post('/tweets',createTweet);

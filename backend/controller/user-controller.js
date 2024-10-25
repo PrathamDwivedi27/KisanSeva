@@ -375,7 +375,16 @@ const resetPassword = async (req, res) => {
       // Update the password and reset OTP
       user.password = hashedPassword;
       user.otp = 0;
-      await user.save();
+      await userModel.findByIdAndUpdate(
+        user._id,
+        {
+            password: hashedPassword,
+            otp: 0
+        },
+        { 
+            validateBeforeSave: false // Skip validation
+        }
+    );
 
       return res.status(202).json({
           message: "Password reset successfully",
