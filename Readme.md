@@ -35,7 +35,7 @@ KrishiSeva is an advanced agricultural platform designed to support farmers by i
 - Stay updated with the latest **news** and **government schemes** through **Selenium web scraping**, ensuring real-time updates.  
  
 ### Demo Video 🎥  
-[![KrishiSeva Demo](/Krishi-Seva-web-design---second-repo//frontend//public/Screenshot%202024-12-17%20003107.png)](https://youtu.be/C-0z3uda0-s)  
+[![KrishiSeva Demo](/backend/utils/Screenshot%202024-12-17%20003107.png)](https://youtu.be/C-0z3uda0-s)  
 
 ## Technologies Used 🛠️  
 - **Frontend**: React.js  
